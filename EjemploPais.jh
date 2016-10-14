@@ -1,0 +1,32 @@
+
+entity Pais {
+paisId Long,
+paisNombre String required minlength(5) maxlength(50),
+createdBy String maxlength(50),
+createdDate ZonedDateTime,
+modifiedBy String maxlength(50),
+modifiedDate ZonedDateTime
+}
+
+enum Estado {
+ACTIVO, BAJA, DESACTIVADO
+}
+
+entity Ciudad {
+Id Long,
+Nombre String required  minlength(3) maxlength(20),
+Cantidad Long,
+Ano Integer,
+createdBy String maxlength(50),
+createdDate ZonedDateTime,
+modifiedBy String maxlength(50),
+modifiedDate ZonedDateTime
+}  
+
+relationship OneToMany {
+ Pais{ciudad} to Ciudad{pais(paisNombre)}
+}  
+
+paginate Ciudad with infinite-scroll
+paginate Pais with pagination
+

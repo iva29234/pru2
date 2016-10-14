@@ -1,0 +1,72 @@
+<div>
+    <h2 data-translate="pru1App.ciudad.home.title">Ciudads</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="ciudad.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="pru1App.ciudad.home.createLabel">
+                        Create new Ciudad
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombre"><span data-translate="pru1App.ciudad.nombre">Nombre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cantidad"><span data-translate="pru1App.ciudad.cantidad">Cantidad</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ano"><span data-translate="pru1App.ciudad.ano">Ano</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createdBy"><span data-translate="pru1App.ciudad.createdBy">Created By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createdDate"><span data-translate="pru1App.ciudad.createdDate">Created Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="modifiedBy"><span data-translate="pru1App.ciudad.modifiedBy">Modified By</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="modifiedDate"><span data-translate="pru1App.ciudad.modifiedDate">Modified Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pais.paisNombre"><span data-translate="pru1App.ciudad.pais">Pais</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="ciudad in vm.ciudads track by ciudad.id">
+                    <td><a ui-sref="ciudad-detail({id:ciudad.id})">{{ciudad.id}}</a></td>
+                    <td>{{ciudad.nombre}}</td>
+                    <td>{{ciudad.cantidad}}</td>
+                    <td>{{ciudad.ano}}</td>
+                    <td>{{ciudad.createdBy}}</td>
+                    <td>{{ciudad.createdDate | date:'medium'}}</td>
+                    <td>{{ciudad.modifiedBy}}</td>
+                    <td>{{ciudad.modifiedDate | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="pais-detail({id:ciudad.pais.id})">{{ciudad.pais.paisNombre}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="ciudad-detail({id:ciudad.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="ciudad.edit({id:ciudad.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="ciudad.delete({id:ciudad.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

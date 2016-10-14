@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="pru1App.ciudad.detail.title">Ciudad</span> {{vm.ciudad.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pru1App.ciudad.nombre">Nombre</span></dt>
+        <dd>
+            <span>{{vm.ciudad.nombre}}</span>
+        </dd>
+        <dt><span data-translate="pru1App.ciudad.cantidad">Cantidad</span></dt>
+        <dd>
+            <span>{{vm.ciudad.cantidad}}</span>
+        </dd>
+        <dt><span data-translate="pru1App.ciudad.ano">Ano</span></dt>
+        <dd>
+            <span>{{vm.ciudad.ano}}</span>
+        </dd>
+        <dt><span data-translate="pru1App.ciudad.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{vm.ciudad.createdBy}}</span>
+        </dd>
+        <dt><span data-translate="pru1App.ciudad.createdDate">Created Date</span></dt>
+        <dd>
+            <span>{{vm.ciudad.createdDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="pru1App.ciudad.modifiedBy">Modified By</span></dt>
+        <dd>
+            <span>{{vm.ciudad.modifiedBy}}</span>
+        </dd>
+        <dt><span data-translate="pru1App.ciudad.modifiedDate">Modified Date</span></dt>
+        <dd>
+            <span>{{vm.ciudad.modifiedDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="pru1App.ciudad.pais">Pais</span></dt>
+        <dd>
+            <a ui-sref="pais-detail({id:vm.ciudad.pais.id})">{{vm.ciudad.pais.paisNombre}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="ciudad-detail.edit({id:vm.ciudad.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

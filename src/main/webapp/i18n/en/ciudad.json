@@ -1,0 +1,29 @@
+{
+    "pru1App": {
+        "ciudad" : {
+            "home": {
+                "title": "Ciudads",
+                "createLabel": "Create a new Ciudad",
+                "createOrEditLabel": "Create or edit a Ciudad",
+                "search": "Search for Ciudad"
+            },
+            "created": "A new Ciudad is created with identifier {{ param }}",
+            "updated": "A Ciudad is updated with identifier {{ param }}",
+            "deleted": "A Ciudad is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ciudad {{ id }}?"
+            },
+            "detail": {
+                "title": "Ciudad"
+            },
+            "nombre": "Nombre",
+            "cantidad": "Cantidad",
+            "ano": "Ano",
+            "createdBy": "Created By",
+            "createdDate": "Created Date",
+            "modifiedBy": "Modified By",
+            "modifiedDate": "Modified Date",
+            "pais": "Pais"
+        }
+    }
+}
